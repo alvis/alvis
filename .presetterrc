@@ -1,0 +1,40 @@
+{
+  "preset": "presetter-preset",
+  "config": {
+    "directory": {
+      "source": "src",
+      "output": "public"
+    },
+    "eslint": {
+      "extends": [
+        "plugin:react/recommended"
+      ],
+      "rules": {
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "variable",
+            "types": [
+              "function"
+            ],
+            "format": [
+              "camelCase",
+              "PascalCase"
+            ]
+          }
+        ]
+      }
+    },
+    "tsconfig": {
+      "include": [
+        "**/*.tsx"
+      ],
+      "compilerOptions": {
+        "jsx": "react",
+        "lib": [
+          "DOM"
+        ]
+      }
+    }
+  }
+}
