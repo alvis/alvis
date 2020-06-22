@@ -5,6 +5,7 @@
       "source": "src",
       "output": "public"
     },
+    "gitignore": [".cache"],
     "eslint": {
       "extends": [
         "plugin:react/recommended"
@@ -22,7 +23,8 @@
               "PascalCase"
             ]
           }
-        ]
+        ],
+        "react/prop-types": "off"
       }
     },
     "tsconfig": {
