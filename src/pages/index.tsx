@@ -13,6 +13,7 @@
  * -------------------------------------------------------------------------
  */
 
+import { Helmet } from 'react-helmet';
 import React from 'react';
 
 import { Landing } from '#layouts';
@@ -26,6 +27,9 @@ import type { FC } from 'react';
  */
 const Entry: FC = () => (
   <Landing>
+    <Helmet>
+      <title>My chaotic world</title>
+    </Helmet>
     <p>Hi! I&apos;m Alvis</p>
   </Landing>
 );

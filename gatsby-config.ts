@@ -17,3 +17,7 @@
  */
 
 /* istanbul ignore file */
+
+import type { GatsbyConfig } from 'gatsby';
+
+export const plugins: GatsbyConfig['plugins'] = ['gatsby-plugin-react-helmet'];
