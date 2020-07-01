@@ -13,22 +13,36 @@
  * -------------------------------------------------------------------------
  */
 
+import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import React from 'react';
 
+import { IndexPageQuery } from '~graphql';
 import { Landing } from '#layouts';
 
+import type { PageProps } from 'gatsby';
 import type { FC } from 'react';
+
+// page query
+export const query = graphql`
+  query IndexPage {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;
 
 /**
  * the main landing page
  * @inheritdoc
  * @returns a component holding the landing page
  */
-const Entry: FC = () => (
+const Entry: FC<PageProps<IndexPageQuery>> = ({ data }) => (
   <Landing>
     <Helmet>
-      <title>My chaotic world</title>
+      <title>{data.site?.siteMetadata?.title ?? 'Default Title'}</title>
     </Helmet>
     <p>Hi! I&apos;m Alvis</p>
   </Landing>

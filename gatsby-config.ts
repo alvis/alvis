@@ -21,3 +21,23 @@
 import type { GatsbyConfig } from 'gatsby';
 
 export const plugins: GatsbyConfig['plugins'] = ['gatsby-plugin-react-helmet'];
+
+export const siteMetadata: GatsbyConfig['siteMetadata'] = {
+  title: `Hi! I'm Alvis`,
+};
+
+export const plugins: GatsbyConfig['plugins'] = [
+  'gatsby-plugin-react-helmet',
+  {
+    resolve: 'gatsby-plugin-graphql-codegen',
+    options: {
+      fileName: './types/~graphql.ts',
+      documentPaths: ['./src/**/*.{ts,tsx}'],
+    },
+  },
+];
+
+export default {
+  siteMetadata,
+  plugins,
+};
