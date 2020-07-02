@@ -5,7 +5,7 @@
       "source": "src",
       "output": "public"
     },
-    "gitignore": [".cache"],
+    "gitignore": [".cache", "webpack-*-report.html"],
     "eslint": {
       "extends": [
         "plugin:react/recommended"
