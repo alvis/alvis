@@ -18,9 +18,13 @@
 
 /* istanbul ignore file */
 
+import env from 'dotenv';
+
 import type { GatsbyConfig } from 'gatsby';
 
-export const plugins: GatsbyConfig['plugins'] = ['gatsby-plugin-react-helmet'];
+env.config({
+  path: `.env.${process.env.NODE_ENV ?? 'development'}`,
+});
 
 export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   title: `Hi! I'm Alvis`,
