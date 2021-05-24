@@ -20,6 +20,8 @@
 
 import env from 'dotenv';
 
+import postcssConfig from './postcss.config';
+
 import type { GatsbyConfig } from 'gatsby';
 
 env.config({
@@ -31,6 +33,16 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
 };
 
 export const plugins: GatsbyConfig['plugins'] = [
+  {
+    // HACK:
+    // As of 2021 September, postcss- loader doesn't support postcss.config.ts
+    // as it uses cosmiconfig to load the config file. Therefore, we need to load
+    // the plugin lists here.
+    resolve: 'gatsby-plugin-postcss',
+    options: {
+      postCssPlugins: postcssConfig.plugins,
+    },
+  },
   'gatsby-plugin-react-helmet',
   {
     resolve: 'gatsby-plugin-graphql-codegen',

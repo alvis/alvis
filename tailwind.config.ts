@@ -5,10 +5,7 @@
  * See the LICENSE file for details.
  * -------------------------------------------------------------------------
  *
- * @summary   Define actions to be loaded in the clients' browser.
- *
- *            See https://www.gatsbyjs.org/docs/browser-apis
- *            for detailed usage.
+ * @summary   Configuration for tailwind
  *
  * @author    Alvis HT Tang <alvis@hilbert.space>
  * @license   MIT
@@ -16,6 +13,23 @@
  * -------------------------------------------------------------------------
  */
 
-/* istanbul ignore file */
-
-import './src/styles/global.css';
+export default {
+  mode: 'jit',
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: false,
+  theme: {
+    extend: {
+      spacing: {
+        '128': '32rem',
+        '160': '40rem',
+        '192': '48rem',
+      },
+    },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1140px',
+    },
+  },
+};
