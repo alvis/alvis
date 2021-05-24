@@ -18,15 +18,25 @@
 
 /* istanbul ignore file */
 
-import type { GatsbyConfig } from 'gatsby';
+import postcssConfig from './postcss.config';
 
-export const plugins: GatsbyConfig['plugins'] = ['gatsby-plugin-react-helmet'];
+import type { GatsbyConfig } from 'gatsby';
 
 export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   title: `Hi! I'm Alvis`,
 };
 
 export const plugins: GatsbyConfig['plugins'] = [
+  {
+    // HACK:
+    // As of 2021 September, postcss- loader doesn't support postcss.config.ts
+    // as it uses cosmiconfig to load the config file. Therefore, we need to load
+    // the plugin lists here.
+    resolve: 'gatsby-plugin-postcss',
+    options: {
+      postCssPlugins: postcssConfig.plugins,
+    },
+  },
   'gatsby-plugin-react-helmet',
   {
     resolve: 'gatsby-plugin-graphql-codegen',

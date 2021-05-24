@@ -5,10 +5,7 @@
  * See the LICENSE file for details.
  * -------------------------------------------------------------------------
  *
- * @summary   Define actions to be loaded in the clients' browser.
- *
- *            See https://www.gatsbyjs.org/docs/browser-apis
- *            for detailed usage.
+ * @summary   Configuration for postcss
  *
  * @author    Alvis HT Tang <alvis@hilbert.space>
  * @license   MIT
@@ -16,6 +13,9 @@
  * -------------------------------------------------------------------------
  */
 
-/* istanbul ignore file */
+import autoprefixer from 'autoprefixer';
+import tailwindcss from 'tailwindcss';
 
-import './src/styles/global.css';
+import tailwindcssConfig from './tailwind.config';
+
+export default { plugins: [autoprefixer, tailwindcss(tailwindcssConfig)] };
