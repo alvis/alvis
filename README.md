@@ -21,6 +21,18 @@ I spend a lot of time making sure my life is meaningful. There are lots of thing
 
 Today, I'm creating [**co.e.o**](https://coeo.is), a career focused community for individuals and teams who are different - they are not the "average" and have difficulty finding other specials to exchange ideas or work together on something that create values!
 
+Meanwhile, I'm also an OSS enthusiast, check out
+* [presetter](https://github.com/alvis/presetter) if you want to reuse build scripts and configs at ease
+* [gatsby-source-notion](https://github.com/alvis/gatsby-source-notion) if you want to use Notion as your CMS
+* many others in
+<a href="https://www.typescriptlang.org" title="Typescript"><img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" alt="Typescript" width="16" height="16" /></a>
+<a href="https://www.python.org" title="Pythpn"><img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Pythpn" width="16" height="16" /></a>
+<a href="https://www.nodejs.org" title="NodeJS"><img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="NodeJS" width="16" height="16" /></a>
+<a href="https://www.graphql.org" title="Graphql"><img src="https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg" alt="Graphql" width="16" height="16" /></a>
+<a href="https://www.gatsbyjs.com" title="Gatsby"><img src="https://www.vectorlogo.zone/logos/gatsbyjs/gatsbyjs-icon.svg" alt="Gatsby" width="16" height="16" /></a>
+<a href="https://pytorch.org" title="PyTorch"><img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" alt="PyTorch" width="16" height="16" /></a>
+which I'll let you to explore below ⤵️
+
 <br>
 
 <a href="https://twitter.com/alvishttang" title="Twitter"><img align="left" alt="Twitter" width="22" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" /></a>
