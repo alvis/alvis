@@ -19,3 +19,6 @@
 /* istanbul ignore file */
 
 import './src/styles/global.css';
+
+// fonts
+import '@fontsource/nunito';

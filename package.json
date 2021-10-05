@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@alvis/preset-gatsby": "github:alvis/preset-gatsby",
+    "@fontsource/nunito": "^4.5.0",
     "@tailwindcss/typography": "^0.4.0"
   },
   "dependencies": {
