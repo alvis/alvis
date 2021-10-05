@@ -5,10 +5,9 @@
  * See the LICENSE file for details.
  * -------------------------------------------------------------------------
  * @summary   Collection of layouts
- *
  * @author    Alvis HT Tang <alvis@hilbert.space>
  * @license   MIT
- * @copyright Copyright (c) 2020 - All Rights Reserved.
+ * @copyright Copyright (c) 2021 - All Rights Reserved.
  * -------------------------------------------------------------------------
  */
 
