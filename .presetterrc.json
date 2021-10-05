@@ -1,0 +1,17 @@
+{
+  "preset": ["@alvis/preset-gatsby"],
+  "config": {
+    "eslint": {
+      "overrides": [
+        {
+          "files": ["src/**/*.tsx"],
+          "rules": {
+            "max-lines-per-function": ["error", { "code": 90 }]
+          }
+        }
+      ]
+    },
+    "gitignore": ["/.env.*", "!/.env.sample", "/types/~*"]
+  },
+  "ignores": [".babelrc.json"]
+}
