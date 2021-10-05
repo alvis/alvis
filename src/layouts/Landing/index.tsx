@@ -5,10 +5,9 @@
  * See the LICENSE file for details.
  * -------------------------------------------------------------------------
  * @summary   The layout for the landing page
- *
  * @author    Alvis HT Tang <alvis@hilbert.space>
  * @license   MIT
- * @copyright Copyright (c) 2020 - All Rights Reserved.
+ * @copyright Copyright (c) 2021 - All Rights Reserved.
  * -------------------------------------------------------------------------
  */
 
@@ -16,8 +15,6 @@ import React from 'react';
 
 import type { FC } from 'react';
 
-export const Landing: FC = (props) => (
-  <React.StrictMode>{props.children}</React.StrictMode>
+export const Landing: FC = ({ children }) => (
+  <React.StrictMode>{children}</React.StrictMode>
 );
-
-Landing.displayName = 'Layout';
