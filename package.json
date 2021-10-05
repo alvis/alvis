@@ -19,40 +19,19 @@
     "url": "git+https://github.com/alvis/alvis.git"
   },
   "scripts": {
-    "postinstall": "presetter bootstrap",
-    "build": "run-s clean build:gatsby",
-    "build:gatsby": "ts-node-cwd --transpile-only -- node_modules/.bin/gatsby build --verbose",
-    "clean": "run-p clean:*",
-    "clean:babel": "shx rm -f .babelrc.json",
-    "clean:cache": "shx rm -rf .cache",
-    "clean:codegen": "shx rm -f types/@graphql.ts",
-    "clean:public": "shx rm -rf public",
+    "prepare": "presetter bootstrap",
+    "build": "ts-node-cwd --transpile-only -- ./node_modules/.bin/gatsby build --verbose",
+    "clean": "run clean",
+    "clean:codegen": "shx rm -f types/~graphql.ts",
     "lint": "run lint",
-    "start": "run-s clean start:gatsby",
-    "start:gatsby": "ts-node-cwd --transpile-only -- node_modules/.bin/gatsby develop"
+    "start": "ts-node-cwd --transpile-only -- ./node_modules/.bin/gatsby develop"
   },
   "devDependencies": {
-    "@babel/node": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@tailwindcss/typography": "^0.4.0",
-    "@types/react": "^16.0.0",
-    "@types/react-helmet": "^6.0.0",
-    "@types/tailwindcss": "^2.2.0",
-    "@types/webpack-bundle-analyzer": "^3.0.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "eslint-plugin-react": "^7.0.0",
-    "gatsby": "^3.0.0",
-    "gatsby-plugin-graphql-codegen": "^3.0.0",
-    "gatsby-plugin-postcss": "^4.0.0",
-    "gatsby-plugin-react-helmet": "^4.0.0",
-    "graphql": "^15.0.0",
-    "postcss": "^8.3.0",
-    "presetter": "^2.1.0",
-    "presetter-preset": "^2.1.0",
-    "tailwindcss": "^2.2.0",
-    "webpack-bundle-analyzer": "^4.0.0"
+    "@alvis/preset-gatsby": "github:alvis/preset-gatsby",
+    "@tailwindcss/typography": "^0.4.0"
   },
   "dependencies": {
+    "gatsby": "^3.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-helmet": "^6.0.0"
