@@ -27,6 +27,7 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
 };
 
 export const plugins: GatsbyConfig['plugins'] = [
+  'gatsby-plugin-image',
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
@@ -53,6 +54,7 @@ export const plugins: GatsbyConfig['plugins'] = [
       documentPaths: ['./src/**/*.{ts,tsx}'],
     },
   },
+  'gatsby-plugin-sharp',
 ];
 
 export default {
