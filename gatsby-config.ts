@@ -34,6 +34,14 @@ export const siteMetadata: GatsbyConfig['siteMetadata'] = {
 
 export const plugins: GatsbyConfig['plugins'] = [
   {
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      name: "Hi! I'm Alvis",
+      short_name: 'Alvis',
+      icon: 'src/images/favicon.png',
+    },
+  },
+  {
     // HACK:
     // As of 2021 September, postcss- loader doesn't support postcss.config.ts
     // as it uses cosmiconfig to load the config file. Therefore, we need to load
