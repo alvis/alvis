@@ -24,20 +24,20 @@
     "clean": "run clean",
     "clean:codegen": "shx rm -f types/~graphql.ts",
     "lint": "run lint",
-    "start": "ts-node-cwd --transpile-only -- ./node_modules/.bin/gatsby develop"
+    "start": "ts-node-cwd --transpile-only -- ./node_modules/.bin/gatsby develop --host 0.0.0.0"
   },
   "devDependencies": {
     "@alvis/preset-gatsby": "github:alvis/preset-gatsby",
     "@fontsource/nunito": "^4.5.0",
     "@fortawesome/free-brands-svg-icons": "^5.0.0",
     "@fortawesome/react-fontawesome": "^0.1.0",
-    "@tailwindcss/typography": "^0.4.0"
+    "@tailwindcss/typography": "^0.5.0"
   },
   "dependencies": {
-    "gatsby": "^3.0.0",
-    "gatsby-plugin-image": "^1.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "gatsby": "^4.0.0",
+    "gatsby-plugin-image": "^2.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "react-helmet": "^6.0.0"
   }
 }
