@@ -49,18 +49,7 @@ const Entry: FC<PageProps<IndexPageQuery>> = ({ data }) => (
       }}>
       <title>{data.site?.siteMetadata?.title ?? 'Default Title'}</title>
     </Helmet>
-    <Intro>
-      There are many ways of finding your vocation in life. Some people go
-      through a series of jobs, feeling completely lost and directionless until
-      one day they have an epiphany and know what their destiny is. Other people
-      follow their family into the same profession; if they're lucky it's their
-      passion too, but sometimes it's just a means for survival or stability.
-      And then there are those who get so stuck on one thing that they can't see
-      any other lights at the end of the tunnel - these clients we call
-      'life-long learners'. But when you really want something for yourself, to
-      be able to do whatever you feel like doing without limitations or
-      obligations, how do you know which way to turn?
-    </Intro>
+    <Intro>a curious techy turned maths PhD turned entrepreneur</Intro>
   </Landing>
 );
 

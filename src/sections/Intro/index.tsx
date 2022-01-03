@@ -26,7 +26,7 @@ import type { FC } from 'react';
  * @returns a component holding the landing page
  */
 export const Intro: FC = ({ children }) => (
-  <header className="container flex flex-col py-4 px-6 mx-auto min-h-screen">
+  <header className="container flex flex-col px-6 mx-auto min-safe-h-screen">
     <div className="flex justify-between items-center mt-4">
       <div>
         <a
@@ -58,10 +58,16 @@ export const Intro: FC = ({ children }) => (
       </div>
     </div>
 
-    <div className="flex flex-col flex-grow justify-center my-8 md:my-0 mr-0 md:mr-72 align-start">
-      <p className="max-w-2xl text-left">{children}</p>
+    <div className="flex flex-col grow justify-center my-8 mr-0 md:my-0 md:mr-72">
+      <h1 className="my-4 max-w-2xl text-3xl text-left">
+        <span>👋 Hi, I’m </span>
+        <span className="font-black underline decoration-indigo-600 decoration-wavy decoration-2 underline-offset-4">
+          Alvis
+        </span>
+      </h1>
+      <p className="mr-16 text-lg lg:text-xl">{children}</p>
     </div>
-    <div className="md:absolute right-2 bottom-2 max-w-md">
+    <div className="right-2 bottom-2 mb-2 max-w-md md:absolute">
       <StaticImage
         alt="me"
         imgClassName="filter grayscale-0 hover:sepia transition w-min"

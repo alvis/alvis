@@ -21,4 +21,5 @@
 import './src/styles/global.css';
 
 // fonts
-import '@fontsource/nunito';
+import '@fontsource/hind';
+import '@fontsource/raleway';
