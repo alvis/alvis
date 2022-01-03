@@ -19,6 +19,10 @@ export default {
   darkMode: false,
   theme: {
     extend: {
+      fontFamily: {
+        display: ['Hind', 'sans-serif'],
+        body: ['Raleway', 'sans-serif'],
+      },
       spacing: {
         '128': '32rem',
         '160': '40rem',
