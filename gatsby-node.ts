@@ -43,6 +43,14 @@ export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = async ({
     options: {},
   });
 
+  // make Gatsby able to use tsx without importing React
+  actions.setBabelPreset({
+    name: 'babel-preset-gatsby',
+    options: {
+      reactRuntime: 'automatic',
+    },
+  });
+
   // set the browser target
   actions.setBabelPreset({
     name: '@babel/preset-env',
