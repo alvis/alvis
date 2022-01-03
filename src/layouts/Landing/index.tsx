@@ -11,10 +11,10 @@
  * -------------------------------------------------------------------------
  */
 
-import React from 'react';
+import { StrictMode } from 'react';
 
 import type { FC } from 'react';
 
 export const Landing: FC = ({ children }) => (
-  <React.StrictMode>{children}</React.StrictMode>
+  <StrictMode>{children}</StrictMode>
 );
