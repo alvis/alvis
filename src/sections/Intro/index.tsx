@@ -17,16 +17,16 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
 /**
  * the main landing page
  * @inheritdoc
  * @returns a component holding the landing page
  */
-export const Intro: FC = ({ children }) => (
-  <header className="container flex flex-col px-6 mx-auto min-safe-h-screen">
-    <div className="flex justify-between items-center mt-4">
+export const Intro: FC<{ children?: ReactNode }> = ({ children }) => (
+  <header className="min-safe-h-screen container mx-auto flex flex-col px-6">
+    <div className="mt-4 flex items-center justify-between">
       <div>
         <a
           className="flex items-center text-gray-800 hover:text-indigo-600"
@@ -42,23 +42,23 @@ export const Intro: FC = ({ children }) => (
           />
         </a>
       </div>
-      <div className="flex items-center -mx-2">
+      <div className="-mx-2 flex items-center">
         <a
-          className=" flex items-center mx-2 text-gray-800 hover:text-indigo-600"
+          className=" mx-2 flex items-center text-gray-800 hover:text-indigo-600"
           href="#">
           Alvis Tang
         </a>
 
         <a
-          className="flex items-center mx-2 text-gray-800 hover:text-indigo-600"
+          className="mx-2 flex items-center text-gray-800 hover:text-indigo-600"
           href="https://github.com/alvis">
           <FontAwesomeIcon icon={faGithub} size="lg" />
         </a>
       </div>
     </div>
 
-    <div className="flex flex-col grow justify-center my-8 mr-0 md:my-0 md:mr-72">
-      <h1 className="my-4 max-w-2xl text-3xl text-left">
+    <div className="my-8 mr-0 flex grow flex-col justify-center md:my-0 md:mr-72">
+      <h1 className="my-4 max-w-2xl text-left text-3xl">
         <span>👋 Hi, I’m </span>
         <span className="font-black underline decoration-indigo-600 decoration-wavy decoration-2 underline-offset-4">
           Alvis

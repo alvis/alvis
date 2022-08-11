@@ -14,15 +14,12 @@
  */
 
 import { graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
 
-import { Intro } from '#sections';
 import { Landing } from '#layouts';
+import { Intro } from '#sections';
 
 import type { PageProps } from 'gatsby';
-import type { FC } from 'react';
-
-import type { IndexPageQuery } from '~graphql';
+import type { FC, ReactNode } from 'react';
 
 // page query
 export const query = graphql`
@@ -35,19 +32,17 @@ export const query = graphql`
   }
 `;
 
+export const Head: FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => (
+  <title>{data.site?.siteMetadata?.title ?? 'Default Title'}</title>
+);
+
 /**
  * the main landing page
  * @inheritdoc
  * @returns a component holding the landing page
  */
-const Entry: FC<PageProps<IndexPageQuery>> = ({ data }) => (
+const Entry: FC<{ children?: ReactNode }> = () => (
   <Landing>
-    <Helmet
-      bodyAttributes={{
-        class: 'antialiased bg-body text-body font-body',
-      }}>
-      <title>{data.site?.siteMetadata?.title ?? 'Default Title'}</title>
-    </Helmet>
     <Intro>a curious techy turned maths PhD turned entrepreneur</Intro>
   </Landing>
 );

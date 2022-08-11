@@ -13,8 +13,8 @@
 
 import { StrictMode } from 'react';
 
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
-export const Landing: FC = ({ children }) => (
+export const Landing: FC<{ children?: ReactNode }> = ({ children }) => (
   <StrictMode>{children}</StrictMode>
 );

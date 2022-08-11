@@ -13,10 +13,11 @@
  * -------------------------------------------------------------------------
  */
 
-export default {
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
   mode: 'jit',
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: false,
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -37,3 +38,5 @@ export default {
     },
   },
 };
+
+export default config;
