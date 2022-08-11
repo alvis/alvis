@@ -31,35 +31,6 @@ import type { CompilerOptions } from 'typescript';
 export const onCreateBabelConfig: GatsbyNode['onCreateBabelConfig'] = async ({
   actions,
 }): Promise<void> => {
-  // make Gatsby able to use tsx
-  actions.setBabelPreset({
-    name: '@babel/preset-typescript',
-    options: {},
-  });
-
-  // make Gatsby able to transform jsx syntax in js files
-  actions.setBabelPreset({
-    name: '@babel/preset-react',
-    options: {},
-  });
-
-  // make Gatsby able to use tsx without importing React
-  actions.setBabelPreset({
-    name: 'babel-preset-gatsby',
-    options: {
-      reactRuntime: 'automatic',
-    },
-  });
-
-  // set the browser target
-  actions.setBabelPreset({
-    name: '@babel/preset-env',
-    options: {
-      loose: true,
-      targets: '> 0.25%, not dead',
-    },
-  });
-
   // add module resolution configuration specified in tsconfig
   const path = getTSPathAlias();
   if (path) {

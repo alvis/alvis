@@ -18,3 +18,13 @@
  */
 
 /* istanbul ignore file */
+
+import type { GatsbySSR } from 'gatsby';
+
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+  setBodyAttributes,
+}) => {
+  setBodyAttributes({
+    className: 'antialiased bg-body text-body font-body',
+  });
+};

@@ -22,6 +22,12 @@ import postcssConfig from './postcss.config';
 
 import type { GatsbyConfig } from 'gatsby';
 
+export const graphqlTypegen: GatsbyConfig['graphqlTypegen'] = {
+  typesOutputPath: 'types/gatsby-graphql.d.ts',
+};
+
+export const jsxRuntime: GatsbyConfig['jsxRuntime'] = 'automatic';
+
 export const siteMetadata: GatsbyConfig['siteMetadata'] = {
   title: `Hi! I'm Alvis`,
 };
@@ -46,18 +52,12 @@ export const plugins: GatsbyConfig['plugins'] = [
       postCssPlugins: postcssConfig.plugins,
     },
   },
-  'gatsby-plugin-react-helmet',
-  {
-    resolve: 'gatsby-plugin-graphql-codegen',
-    options: {
-      fileName: './types/~graphql.ts',
-      documentPaths: ['./src/**/*.{ts,tsx}'],
-    },
-  },
   'gatsby-plugin-sharp',
 ];
 
 export default {
+  graphqlTypegen,
+  jsxRuntime,
   siteMetadata,
   plugins,
 };

@@ -6,12 +6,11 @@
         {
           "files": ["src/**/*.tsx"],
           "rules": {
-            "max-lines-per-function": ["error", { "code": 90 }]
+            "max-lines-per-function": ["error", { "max": 90 }]
           }
         }
       ]
     },
-    "gitignore": ["/types/~*"]
-  },
-  "ignores": [".babelrc.json"]
+    "gitignore": ["/types/gatsby-graphql.d.ts"]
+  }
 }
