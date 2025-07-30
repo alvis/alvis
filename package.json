@@ -2,9 +2,6 @@
   "name": "alvis",
   "version": "0.0.0",
   "private": true,
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "description": "My personal website",
   "keywords": [
     "alvis",
@@ -12,35 +9,47 @@
     "website"
   ],
   "homepage": "https://github.com/alvis/alvis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvis/alvis.git"
+  },
   "license": "MIT",
   "author": {
     "name": "Alvis HT Tang",
     "email": "alvis@hilbert.space"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alvis/alvis.git"
+  "imports": {
+    "#public/*": "./public/*",
+    "#*.css": "./src/*.css",
+    "#*": "./src/*/index.ts"
   },
   "scripts": {
+    "blur": "node scripts/generate-blur.mjs",
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "run lint --",
     "prepare": "presetter bootstrap",
-    "build": "gatsby build --verbose",
-    "clean": "run clean",
-    "lint": "run lint",
-    "start": "gatsby develop --host 0.0.0.0"
-  },
-  "devDependencies": {
-    "@alvis/preset-gatsby": "github:alvis/preset-gatsby",
-    "@fontsource/hind": "^4.5.0",
-    "@fontsource/raleway": "^4.5.0",
-    "@fortawesome/free-brands-svg-icons": "^6.0.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@tailwindcss/typography": "^0.5.0",
-    "babel-plugin-module-resolver": "^4.0.0"
+    "start": "next start",
+    "serve": "npx serve dist -p 8080"
   },
   "dependencies": {
-    "gatsby": "^5.0.0",
-    "gatsby-plugin-image": "^3.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  }
+    "@fontsource/hind": "^5.2.0",
+    "@fontsource/raleway": "^5.2.0",
+    "@fortawesome/fontawesome-svg-core": "^7.0.0",
+    "@fortawesome/free-brands-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "next": "^15.4.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "presetter": "^8.0.0",
+    "presetter-preset-next": "^8.0.0",
+    "serve": "^14.2.0",
+    "typescript": "^5.8.0"
+  },
+  "packageManager": "pnpm@10.13.0"
 }

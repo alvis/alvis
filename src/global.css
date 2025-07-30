@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+/* Import fonts */
+@import '@fontsource/hind/400.css';
+@import '@fontsource/hind/700.css';
+@import '@fontsource/raleway/400.css';
+@import '@fontsource/raleway/700.css';
+
+/* Tailwind CSS v4 theme configuration */
+@theme {
+  /* Font families */
+  --font-family-display: 'Hind', sans-serif;
+  --font-family-body: 'Raleway', sans-serif;
+
+  /* Custom spacing values */
+  --spacing-128: 32rem;
+  --spacing-160: 40rem;
+  --spacing-192: 48rem;
+
+  /* Custom breakpoints */
+  --breakpoint-xl: 1140px;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-family-display);
+  font-weight: 100;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-display);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+/* Custom utilities using Tailwind v4 @utility syntax */
+@utility min-safe-h-screen {
+  min-height: calc(100vh - env(safe-area-inset-bottom, 0));
+  min-height: -webkit-fill-available;
+}
+
+:root {
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}
+
+@layer components {
+  /* Image load transition: blur to sharp with sepia compatibility */
+  @keyframes image-reveal {
+    0% {
+      filter: blur(10px) sepia(0);
+      opacity: 0.6;
+    }
+    100% {
+      filter: blur(0px) sepia(0);
+      opacity: 1;
+    }
+  }
+
+  /* Ensure hover sepia works after animation */
+  .reveal-image {
+    animation: image-reveal 1.5s ease-out 0.3s both;
+  }
+
+  .reveal-image:hover {
+    filter: blur(1px) sepia(1) !important;
+  }
+}
