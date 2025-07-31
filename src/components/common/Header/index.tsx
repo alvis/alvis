@@ -6,12 +6,21 @@ import { Navigation } from '../Navigation';
 
 import type { FC } from 'react';
 
+interface HeaderProps {
+  className?: string;
+}
+
 /**
  * header component with logo and navigation
+ * @param props component props
+ * @param props.className optional className for styling
  * @returns header component
  */
-export const Header: FC = () => (
-  <div className="mt-4 flex items-center justify-between">
+export const Header: FC<HeaderProps> = ({ className }) => (
+  <div className={`
+    flex items-center justify-between
+    ${className ?? ''}
+  `}>
     <div>
       <a
         className={`

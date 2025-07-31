@@ -12,29 +12,35 @@ import type { FC, PropsWithChildren } from 'react';
  * @param props.children bio content
  */
 export const Intro: FC<PropsWithChildren> = ({ children }) => (
-  <header className="container mx-auto flex min-safe-h-screen flex-col px-6">
-    <Header />
+  <header
+    className={`container mx-auto grid min-h-dvh grid-rows-[auto_1fr] px-6`}>
+    <Header className="pt-4" />
 
-    <div
-      className={`
-        my-8 mr-0 flex grow flex-col justify-center
-        md:my-0 md:mr-72
+    <div className={`
+      grid content-center py-8
+      md:py-0
+    `}>
+      <div className={`
+        max-w-2xl
+        md:mr-72
       `}>
-      <h1 className="my-4 max-w-2xl text-left text-3xl">
-        <span>👋 Hi, I&apos;m </span>
-        <span
-          className={`
-            font-black underline decoration-indigo-600 decoration-wavy
-            decoration-2 underline-offset-4
-          `}>
-          Alvis
-        </span>
-      </h1>
-      <p className={`
-        mr-16 text-lg
-        lg:text-xl
-      `}>{children}</p>
+        <h1 className="mb-4 text-3xl">
+          <span>👋 Hi, I&apos;m </span>
+          <span
+            className={`
+              font-black underline decoration-indigo-600 decoration-wavy
+              decoration-2 underline-offset-4
+            `}>
+            Alvis
+          </span>
+        </h1>
+        <p className={`
+          text-lg
+          lg:text-xl
+        `}>{children}</p>
+      </div>
     </div>
+
     <div className={`
       right-2 bottom-2 mb-2 max-w-md
       md:absolute
