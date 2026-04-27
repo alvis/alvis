@@ -1,0 +1,15 @@
+@import '../src/styles/globals.css';
+
+/* Font-stack fallbacks for Storybook — next/font and @fontsource imports
+   may not resolve identically here, so we declare CSS-only chains that
+   match the next/font setup in src/app/layout.tsx. */
+:root {
+  --font-cormorant-garamond: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-hind: 'Hind', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-raleway: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-newsreader: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-eb-garamond: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-spectral: 'Spectral', Georgia, 'Times New Roman', serif;
+  --font-instrument-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+}

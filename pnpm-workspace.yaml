@@ -1,7 +1,14 @@
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - esbuild
-  - sharp
-  - unrs-resolver
-
-shamefullyHoist: true
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@presetter/preset-esm@9.0.1'
+  - '@presetter/preset-essentials@9.0.1'
+  - '@presetter/preset-next@9.0.1'
+  - '@presetter/preset-node@9.0.1'
+  - '@presetter/preset-react@9.0.1'
+  - '@presetter/preset-strict@9.0.1'
+  - '@presetter/preset-web@9.0.1'
+  - '@presetter/types@9.0.1'
+  - presetter@9.0.1

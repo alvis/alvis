@@ -1,4 +1,4 @@
-import { Intro } from '../sections/Intro';
+import { Details, FinalInvitation, Intro, Writing } from '#sections';
 
 import type { FC } from 'react';
 
@@ -8,8 +8,11 @@ import type { FC } from 'react';
  */
 export default (function HomePage() {
   return (
-    <main>
-      <Intro>a curious techy turned maths PhD turned entrepreneur</Intro>
+    <main id="main-content" tabIndex={-1}>
+      <Intro />
+      <Details />
+      <Writing />
+      <FinalInvitation />
     </main>
   );
 } satisfies FC);

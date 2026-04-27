@@ -1,0 +1,83 @@
+/* ─────────────────────────────────────────────────────────────────────
+ * theme.css — token contract for the site
+ *
+ * Single-theme contract. The base `:root` block is intentionally empty so
+ * a future brand/voice can be added by introducing a new
+ * `:root[data-theme="…"]` scope without touching this one.
+ *
+ * Tier 1 (Tailwind v4 `@theme`): tokens that must become Tailwind
+ * utilities — font families, custom spacing, custom breakpoints.
+ * Tier 2 (`:root[data-theme="codex"]`): runtime-mutable semantic tokens
+ * consumed by components and class rules in globals.css. Names describe
+ * the *role* (`--color-accent`, `--color-paper`, `--size-body`), never
+ * the visual appearance.
+ * ───────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Font families — exposed as Tailwind utilities */
+  --font-family-display: Fraunces, Georgia, serif;
+  --font-family-body: 'Source Serif 4', Georgia, serif;
+  --font-family-label: 'Source Sans 3', Arial, sans-serif;
+  --font-family-hand: Caveat, 'Comic Sans MS', cursive;
+  --font-family-mono:
+    'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Custom spacing scale — preserved for utilities like `max-w-128` */
+  --spacing-128: 32rem;
+  --spacing-160: 40rem;
+  --spacing-192: 48rem;
+
+  /* Custom breakpoints */
+  --breakpoint-xl: 1140px;
+}
+
+/* Reserved for future themes — do NOT add theme overrides here. */
+:root {
+  /* Safe-area insets — environment-derived, not theme-dependent */
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Codex theme — the only theme shipped today
+ *
+ * All semantic tokens here use role-based names. The values are the
+ * exact constants previously scoped to `.codex-article`, plus the
+ * site-wide palette literals lifted from the old base body styles and
+ * component-level Tailwind arbitrary values.
+ * ───────────────────────────────────────────────────────────────────── */
+:root[data-theme='codex'] {
+  /* Colors — by role, not appearance */
+  --color-ink: #162747;
+  --color-ink-soft: rgba(22, 39, 71, 0.78);
+  --color-mute: rgba(22, 39, 71, 0.55);
+  --color-mute-strong: #506176;
+  --color-rule: #d8c9b4;
+  --color-rule-soft: rgba(216, 201, 180, 0.45);
+  --color-rule-strong: rgba(216, 201, 180, 0.95);
+  --color-accent: #a64b2a;
+  --color-signal: #466a9f;
+  --color-amber: #c9954e; /* navy-field accents only — fails 4.5:1 on paper */
+  --color-olive: #5f6838;
+  --color-paper: #f7f1e6;
+  --color-paper-raised: #fff9ee;
+  --color-paper-sunk: #eee5d4;
+  --color-on-ink: #f2e7d5;
+  --color-on-ink-accent: #e1a779;
+
+  /* Sizes — reading shell type scale */
+  --size-body: 1.1875rem;
+  --size-title: clamp(2.6rem, 2.2rem + 2.6vw, 4rem);
+  --size-dek: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+  --size-pull: clamp(1.5rem, 1.3rem + 1.2vw, 1.95rem);
+
+  /* Layout — reading shell rhythm + gutters */
+  --measure: 38rem;
+  --rhythm: 1.1em;
+  --rhythm-2: 1.625rem;
+  --rhythm-4: 4rem;
+  --shell-px: clamp(1.25rem, 1rem + 3vw, 4rem);
+  --shell-py: clamp(1rem, 0.5rem + 2vw, 2rem);
+}

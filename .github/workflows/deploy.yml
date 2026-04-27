@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   # runs on pushes targeting the default branch
   push:
-    branches: ['master']
+    branches: ["main"]
 
   # allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,7 +17,7 @@ permissions:
 # allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # however, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
@@ -36,8 +36,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: 'pnpm'
+          node-version: "24"
+          cache: "pnpm"
 
       - name: Restore Cache
         uses: actions/cache@v4

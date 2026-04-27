@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alvis — Ink &amp; Marginalia token &amp; component catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap">
+<style>
+  :root {
+    /* colors — mirrors src/styles/theme.css :root[data-theme='codex'] + facelift additions */
+    --color-ink: #162747;
+    --color-ink-soft: rgba(22,39,71,.78);
+    --color-mute: rgba(22,39,71,.55);
+    --color-mute-strong: #506176;
+    --color-accent: #a64b2a;
+    --color-signal: #466a9f;
+    --color-amber: #c9954e;
+    --color-olive: #5f6838;
+    --color-paper: #f7f1e6;
+    --color-paper-raised: #fff9ee;
+    --color-paper-sunk: #eee5d4;
+    --color-rule: #d8c9b4;
+    --color-on-ink: #f2e7d5;
+    --color-on-ink-accent: #e1a779;
+    --color-ink-deep: #0d1d38; /* footer coda navy, deeper than --color-ink */
+    /* fonts */
+    --font-family-display: 'Fraunces', Georgia, serif;
+    --font-family-body: 'Source Serif 4', Georgia, serif;
+    --font-family-label: 'Source Sans 3', Arial, sans-serif;
+    --font-family-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --font-family-hand: 'Caveat', cursive;
+    /* sizes */
+    --size-title: clamp(2.6rem, 2.2rem + 2.6vw, 4rem);
+    --size-dek: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+    --size-pull: clamp(1.5rem, 1.3rem + 1.2vw, 1.95rem);
+    --size-body: 1.1875rem;
+    --measure: 38rem;
+    /* reading-shell rhythm */
+    --rhythm-2: 1.625rem;
+    --rhythm-4: 4rem;
+    --shell-px: clamp(1.25rem, 1rem + 3vw, 4rem);
+    --shell-py: clamp(1rem, 0.5rem + 2vw, 2rem);
+    /* split-fold geometry */
+    --fold-clip: polygon(0 70%, 13% 70%, 31% 18%, 45% 70%, 65% 34%, 80% 70%, 100% 70%, 100% 100%, 0 100%);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--color-paper); color: var(--color-ink);
+    font-family: var(--font-family-body); line-height: 1.55; padding: 48px 24px 120px; }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+  h1 { font: 500 2.3rem/1.1 var(--font-family-display); margin: 0 0 8px; }
+  .lede { color: var(--color-mute-strong); max-width: var(--measure); margin: 0 0 56px; }
+  section { margin-bottom: 72px; }
+  h2 { font: 500 1.4rem/1.2 var(--font-family-display); border-bottom: 1px solid var(--color-rule);
+    padding-bottom: 10px; margin: 0 0 24px; }
+  .tok { font: 500 .72rem/1.4 var(--font-family-mono); color: var(--color-mute-strong); }
+
+  /* swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .sw { border: 1px solid var(--color-rule); border-radius: 8px; overflow: hidden; background: var(--color-paper-raised); }
+  .sw .chip { height: 64px; }
+  .sw .meta { padding: 8px 10px; }
+  .sw .meta b { display: block; font: 600 .72rem/1.3 var(--font-family-label); letter-spacing: .04em; }
+
+  /* type specimens */
+  .spec { border-left: 2px solid var(--color-rule); padding: 6px 0 6px 20px; margin-bottom: 26px; }
+  .t-title { font: 500 var(--size-title)/1.02 var(--font-family-display); margin: 0; }
+  .t-title em { font-style: italic; color: var(--color-accent); }
+  .t-pull { font: 500 italic var(--size-pull)/1.25 var(--font-family-display); color: var(--color-ink-soft); margin: 0; }
+  .t-dek { font-size: var(--size-dek); color: var(--color-mute-strong); margin: 0; max-width: var(--measure); }
+  .t-body { font-size: var(--size-body); margin: 0; max-width: var(--measure); }
+  .t-caps { font: 600 .75rem/1.2 var(--font-family-label); letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent); margin: 0; }
+  .t-mono { font: 500 .8rem/1.4 var(--font-family-mono); color: var(--color-mute-strong); margin: 0; }
+  .t-hand { font: 500 1.15rem/1.2 var(--font-family-hand); color: var(--color-accent); transform: rotate(-3deg); display: inline-block; margin: 0; }
+
+  /* spacing scale */
+  .scale-row { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+  .scale-bar { height: 16px; background: var(--color-accent); border-radius: 2px; flex: none; }
+  .scale-row .tok { white-space: nowrap; }
+
+  /* letterpress CTAs */
+  .cta-row { display: flex; gap: 26px; flex-wrap: wrap; padding: 26px; background: var(--color-paper-raised); border: 1px solid var(--color-rule); border-radius: 8px; }
+  .cta { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px;
+    min-height: 44px; padding: 0 20px; border: 1.5px solid var(--color-ink); border-radius: 2px;
+    font: 600 .74rem/1 var(--font-family-label); letter-spacing: .05em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; background: transparent; color: var(--color-ink);
+    transition: transform .18s ease; }
+  .cta::after { content: ""; position: absolute; inset: 6px -6px -6px 6px;
+    border: 1px solid var(--color-accent); z-index: -1; transition: inset .18s ease; }
+  .cta--primary { color: var(--color-paper-raised); background: var(--color-ink);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.3), inset 0 -1px 0 rgba(255,255,255,.08); }
+  .cta:hover { transform: translate(-2px,-2px); }
+  .cta:hover::after { inset: 9px -9px -9px 9px; }
+  .cta:focus-visible { outline: 2px solid var(--color-signal); outline-offset: 2px; }
+
+  /* split-fold separators */
+  .mock { border: 1px solid var(--color-rule); border-radius: 8px; overflow: hidden; margin-bottom: 20px; }
+  .mock .cream { background: var(--color-paper-raised); padding: 26px 30px 40px; }
+  .mock .navy { position: relative; background: var(--color-ink); color: var(--color-on-ink); padding: 44px 30px 26px; }
+  .fold { position: absolute; left: 0; right: 0; pointer-events: none; clip-path: var(--fold-clip); }
+  .sep-a .fold-mid { top: -29px; height: 30px; background: linear-gradient(to bottom, var(--color-accent) 0 55%, var(--color-signal) 55% 100%); }
+  .sep-a .fold-front { top: -23px; height: 24px; background: var(--color-ink); }
+  .sep-b .fold-far { top: -33px; height: 34px; background: rgba(22,39,71,.16); }
+  .sep-b .fold-mid { top: -28px; height: 29px; background: rgba(22,39,71,.4); }
+  .sep-b .fold-front { top: -22px; height: 23px; background: var(--color-ink); }
+  .sep-c .fold-far { top: -28px; height: 29px; background: rgba(166,75,42,.38); }
+  .sep-c .fold-mid { top: -24px; height: 25px; background: rgba(70,106,159,.34); }
+  .sep-c .fold-front { top: -19px; height: 20px; background: var(--color-ink); }
+
+  /* manifesto band: grain + pigment glow + brushed wavy edges */
+  .manifesto { position: relative; background: var(--color-ink); color: var(--color-on-ink);
+    padding: 64px 40px; overflow: hidden; }
+  .manifesto .wash { position: absolute; inset: 0; background: url("reviews/facelift/directions/wash-900.png") center/cover;
+    mix-blend-mode: soft-light; opacity: .35; filter: saturate(.6) brightness(.7); }
+  .manifesto .grain { position: absolute; inset: 0; opacity: .12;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E"); }
+  .manifesto .edge { position: absolute; left: 0; right: 0; height: 18px; pointer-events: none; }
+  .manifesto .edge svg { display: block; width: 100%; height: 100%; }
+  .manifesto .edge--top { top: -1px; }
+  .manifesto .edge--bottom { bottom: -1px; transform: scaleY(-1); }
+  .manifesto .kicker { position: relative; font: 600 .68rem/1.2 var(--font-family-label); letter-spacing: .1em;
+    text-transform: uppercase; color: var(--color-amber); margin: 0 0 10px; }
+  .manifesto .line { position: relative; font: 500 var(--size-pull)/1.15 var(--font-family-display); margin: 0; max-width: 560px; }
+
+  /* mission bridge */
+  .bridge { background: var(--color-paper-raised); border: 1px solid var(--color-rule); border-radius: 8px;
+    padding: 36px 40px; display: grid; grid-template-columns: 1fr 90px 1fr; align-items: start; }
+  .bridge h3 { font: 500 1.5rem/1.15 var(--font-family-display); margin: 0; }
+  .bridge .b2 { margin-top: 56px; text-align: right; }
+  .bridge svg { width: 100%; height: 110px; overflow: visible; }
+
+  /* mounted plate */
+  .plate-entry { background: var(--color-paper-raised); border: 1px solid var(--color-rule); border-radius: 8px;
+    padding: 34px 40px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 34px; }
+  .plate-entry .kicker { font: 600 .68rem/1.2 var(--font-family-label); letter-spacing: .1em; text-transform: uppercase; color: var(--color-accent); margin: 0 0 6px; }
+  .plate-entry h3 { font: 500 2rem/1.1 var(--font-family-display); margin: 0 0 12px; }
+  .plate-entry p { margin: 0 0 12px; max-width: 46ch; }
+  .circled { position: relative; white-space: nowrap; }
+  .circled svg { position: absolute; inset: -7px -10px; width: calc(100% + 20px); height: calc(100% + 14px); overflow: visible; }
+  .plate { position: relative; border: 1px solid var(--color-rule); background: var(--color-paper);
+    padding: 18px; box-shadow: 0 10px 30px rgba(22,39,71,.1); }
+  .plate .fig { display: block; margin-top: 12px; font: 600 .62rem/1.2 var(--font-family-label); letter-spacing: .1em; text-transform: uppercase; color: var(--color-mute-strong); }
+  .plate .cross { position: absolute; width: 14px; height: 14px; color: var(--color-accent); opacity: .8; }
+  .plate .cross::before, .plate .cross::after { content: ""; position: absolute; background: currentColor; }
+  .plate .cross::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+  .plate .cross::after { top: 50%; left: 0; right: 0; height: 1px; }
+  .plate .cross.tl { top: -7px; left: -7px; } .plate .cross.tr { top: -7px; right: -7px; }
+  .plate .cross.bl { bottom: -7px; left: -7px; } .plate .cross.br { bottom: -7px; right: -7px; }
+  .plate .sketch { display: block; width: 100%; height: auto; }
+  .plate .ring { fill: none; stroke: var(--color-ink); stroke-width: 1; opacity: .7; }
+  .plate .ring-2 { stroke: var(--color-signal); stroke-dasharray: 3 4; opacity: .8; }
+  .plate .ring-3 { stroke: var(--color-accent); }
+  .plate .node { fill: var(--color-amber); }
+  .plate-note { font: 500 1.1rem/1.2 var(--font-family-hand); color: var(--color-accent); transform: rotate(-3deg); display: inline-block; margin-top: 10px; }
+
+  /* field-note writing row */
+  .writing-row { background: var(--color-paper-raised); border: 1px solid var(--color-rule); border-radius: 8px;
+    padding: 26px 30px; display: grid; grid-template-columns: 150px 1fr; gap: 26px; align-items: start; }
+  .fieldnote { border: 1px solid var(--color-rule); background: var(--color-paper); padding: 8px; }
+  .fieldnote img { width: 100%; display: block; filter: sepia(.15) saturate(.85); }
+  .writing-row .meta { font: 600 .68rem/1.2 var(--font-family-label); letter-spacing: .08em; text-transform: uppercase; color: var(--color-accent); margin: 0 0 6px; }
+  .writing-row h3 { font: 500 1.6rem/1.15 var(--font-family-display); margin: 0 0 8px; }
+  .writing-row p { margin: 0 0 10px; max-width: 52ch; }
+  .readlink { font: 600 .72rem/1 var(--font-family-label); letter-spacing: .05em; text-transform: uppercase; color: var(--color-ink); text-decoration: none; border-bottom: 1px solid var(--color-accent); padding-bottom: 2px; }
+
+  /* footer coda pigment bloom */
+  .coda { position: relative; background: var(--color-ink-deep); color: var(--color-on-ink); border-radius: 8px;
+    overflow: hidden; padding: 56px 44px; }
+  .coda .bloom { position: absolute; inset: 0; background: url("reviews/facelift/directions/wash-900.png") 70% 30%/120% auto no-repeat;
+    mix-blend-mode: soft-light; opacity: .5;
+    -webkit-mask-image: radial-gradient(60% 80% at 72% 40%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(60% 80% at 72% 40%, #000 0%, transparent 75%);
+    animation: breathe 8s ease-in-out infinite; }
+  @keyframes breathe { 0%,100% { opacity: .38; transform: scale(1); } 50% { opacity: .55; transform: scale(1.03); } }
+  @media (prefers-reduced-motion: reduce) { .coda .bloom { animation: none; } }
+  .coda .grid { position: relative; display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .coda .name { font: 500 1.6rem/1.2 var(--font-family-display); margin: 0 0 8px; }
+  .coda .mission { margin: 0; color: rgba(242,231,213,.75); }
+  .coda .statement { text-align: right; }
+  .coda .s1 { font: 500 2.4rem/1.05 var(--font-family-display); margin: 0; }
+  .coda .s2 { font: 500 italic 2rem/1.1 var(--font-family-display); color: var(--color-on-ink-accent); margin: 0; }
+
+  /* centered masthead */
+  .masthead { background: var(--color-paper-raised); border: 1px solid var(--color-rule); border-radius: 8px;
+    padding: 20px 32px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+  .masthead nav { display: flex; gap: 22px; font: 600 .74rem/1 var(--font-family-label); letter-spacing: .04em; }
+  .masthead nav.right { justify-content: flex-end; }
+  .masthead a { color: var(--color-ink); text-decoration: none; }
+  .masthead .brand { display: flex; align-items: center; gap: 10px; }
+  .masthead .emblem { width: 30px; height: 30px; border-radius: 50%;
+    background: radial-gradient(circle at 32% 30%, #c9713f, var(--color-accent)); color: var(--color-paper-raised);
+    font: 600 .78rem/30px var(--font-family-display); text-align: center; }
+  .masthead .wordmark { font: 600 .95rem/1 var(--font-family-label); letter-spacing: .32em; }
+
+  @media (max-width: 720px) {
+    .plate-entry, .writing-row, .bridge { grid-template-columns: 1fr; }
+    .bridge .b2 { text-align: left; margin-top: 8px; }
+    .bridge svg { height: 60px; }
+    .coda .statement { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Ink &amp; Marginalia — token &amp; component catalog</h1>
+  <p class="lede">Single warm-paper theme (no light/dark — locked decision). Every value mirrors <code class="tok">src/styles/theme.css</code> plus the facelift additions. Companion to DESIGN.md; recipes sourced from the approved option strips.</p>
+
+  <section>
+    <h2>Color tokens</h2>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#162747"></div><div class="meta"><b>ink</b><span class="tok">--color-ink · #162747</span></div></div>
+      <div class="sw"><div class="chip" style="background:#506176"></div><div class="meta"><b>mute strong</b><span class="tok">--color-mute-strong · #506176</span></div></div>
+      <div class="sw"><div class="chip" style="background:#a64b2a"></div><div class="meta"><b>accent / oxide</b><span class="tok">--color-accent · #A64B2A</span></div></div>
+      <div class="sw"><div class="chip" style="background:#466a9f"></div><div class="meta"><b>signal</b><span class="tok">--color-signal · #466A9F</span></div></div>
+      <div class="sw"><div class="chip" style="background:#c9954e"></div><div class="meta"><b>amber</b><span class="tok">--color-amber · #C9954E</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5f6838"></div><div class="meta"><b>olive</b><span class="tok">--color-olive · #5F6838</span></div></div>
+      <div class="sw"><div class="chip" style="background:#f7f1e6"></div><div class="meta"><b>paper</b><span class="tok">--color-paper · #F7F1E6</span></div></div>
+      <div class="sw"><div class="chip" style="background:#fff9ee"></div><div class="meta"><b>paper raised</b><span class="tok">--color-paper-raised · #FFF9EE</span></div></div>
+      <div class="sw"><div class="chip" style="background:#eee5d4"></div><div class="meta"><b>paper sunk</b><span class="tok">--color-paper-sunk · #EEE5D4</span></div></div>
+      <div class="sw"><div class="chip" style="background:#d8c9b4"></div><div class="meta"><b>rule</b><span class="tok">--color-rule · #D8C9B4</span></div></div>
+      <div class="sw"><div class="chip" style="background:#f2e7d5"></div><div class="meta"><b>on ink</b><span class="tok">--color-on-ink · #F2E7D5</span></div></div>
+      <div class="sw"><div class="chip" style="background:#e1a779"></div><div class="meta"><b>on ink accent</b><span class="tok">--color-on-ink-accent · #E1A779</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Type specimens</h2>
+    <div class="spec"><p class="t-title">Context for AI.<br><em>Purpose for humans.</em></p><span class="tok">--font-family-display (Fraunces) · --size-title · roman + italic hero pattern</span></div>
+    <div class="spec"><p class="t-pull">Execution is getting cheap. Direction is becoming sacred.</p><span class="tok">--font-family-display italic · --size-pull</span></div>
+    <div class="spec"><p class="t-dek">A system for giving AI agents durable working memory, provenance, and context that can be inspected, updated, and trusted.</p><span class="tok">--font-family-body (Source Serif 4) · --size-dek</span></div>
+    <div class="spec"><p class="t-body">Context shapes decisions, creates leverage, and compounds over time. The next durable AI products will treat context as infrastructure, not prompt decoration.</p><span class="tok">--font-family-body · --size-body · --measure 38rem</span></div>
+    <div class="spec"><p class="t-caps">May 19, 2025 · 7 min · Systems</p><span class="tok">--font-family-label (Source Sans 3) caps · metadata candidate A (tweaker)</span></div>
+    <div class="spec"><p class="t-mono">MAY 19, 2025 / 7 MIN / SYSTEMS</p><span class="tok">--font-family-mono (IBM Plex Mono) · metadata candidate B (tweaker)</span></div>
+    <div class="spec"><p class="t-hand">— A.T., the core bet</p> <span class="tok">--font-family-hand (Caveat) · marginalia only</span></div>
+  </section>
+
+  <section>
+    <h2>Spacing &amp; measure — reading-shell rhythm</h2>
+    <div class="scale-row"><div class="scale-bar" style="width:1.625rem"></div><span class="tok">--rhythm-2 · 1.625rem</span></div>
+    <div class="scale-row"><div class="scale-bar" style="width:4rem"></div><span class="tok">--rhythm-4 · 4rem</span></div>
+    <div class="scale-row"><div class="scale-bar" style="width:clamp(1.25rem, 1rem + 3vw, 4rem)"></div><span class="tok">--shell-px · clamp(1.25rem, 1rem + 3vw, 4rem)</span></div>
+    <div class="scale-row"><div class="scale-bar" style="width:clamp(1rem, 0.5rem + 2vw, 2rem)"></div><span class="tok">--shell-py · clamp(1rem, 0.5rem + 2vw, 2rem)</span></div>
+    <div class="scale-row"><div class="scale-bar" style="width:38rem;max-width:100%"></div><span class="tok">--measure · 38rem (prose line length)</span></div>
+  </section>
+
+  <section>
+    <h2>CTA buttons — A · Letterpress (locked)</h2>
+    <div class="cta-row">
+      <a class="cta cta--primary" href="#">Follow the build ↗</a>
+      <a class="cta" href="#">Explore the code →</a>
+    </div>
+    <p class="tok" style="margin-top:10px">hover: translate(-2px,-2px), oxide offset frame trails to 9px · z-index:1 required on the button</p>
+  </section>
+
+  <section>
+    <h2>Section separators — split-fold family (DesignTweaker options)</h2>
+    <div class="mock"><div class="cream"><p class="t-caps" style="margin:0">A · classic accents</p></div>
+      <div class="navy sep-a"><div class="fold fold-mid"></div><div class="fold fold-front"></div><span class="tok" style="color:rgba(242,231,213,.6)">oxide→signal solid slivers · 24px</span></div></div>
+    <div class="mock"><div class="cream"><p class="t-caps" style="margin:0">B · translucent ink</p></div>
+      <div class="navy sep-b"><div class="fold fold-far"></div><div class="fold fold-mid"></div><div class="fold fold-front"></div><span class="tok" style="color:rgba(242,231,213,.6)">ink 16% / 40% planes · 23px</span></div></div>
+    <div class="mock"><div class="cream"><p class="t-caps" style="margin:0">C · whisper accents</p></div>
+      <div class="navy sep-c"><div class="fold fold-far"></div><div class="fold fold-mid"></div><div class="fold fold-front"></div><span class="tok" style="color:rgba(242,231,213,.6)">oxide 38% + signal 34% · 20px</span></div></div>
+    <p class="tok">--fold-clip: polygon(0 70%, 13% 70%, 31% 18%, 45% 70%, 65% 34%, 80% 70%, 100% 70%, 100% 100%, 0 100%) · angular, never wavy, no blur · thickness/color knobs to come</p>
+  </section>
+
+  <section>
+    <h2>Manifesto band — B grain + pigment glow, D brushed edges (merged)</h2>
+    <div class="manifesto">
+      <div class="wash"></div><div class="grain"></div>
+      <div class="edge edge--top"><svg viewBox="0 0 1200 18" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,7 C1050,15 900,4 760,10 C600,17 460,5 320,11 C200,16 90,6 0,12 Z" fill="#f7f1e6"/></svg></div>
+      <div class="edge edge--bottom"><svg viewBox="0 0 1200 18" preserveAspectRatio="none"><path d="M0,0 L1200,0 L1200,8 C1080,14 920,3 780,9 C620,16 480,4 340,10 C210,15 100,5 0,11 Z" fill="#f7f1e6"/></svg></div>
+      <p class="kicker">the premise / 01</p>
+      <p class="line">Execution is getting cheap. Direction is becoming sacred.</p>
+    </div>
+    <p class="tok" style="margin-top:10px">real wash soft-light @ .35 under feTurbulence grain @ .12 · hand-brushed SVG boundaries top/bottom</p>
+  </section>
+
+  <section>
+    <h2>Mission bridge — A · ink curve + arrowhead (locked)</h2>
+    <div class="bridge">
+      <h3>Give machines context</h3>
+      <svg viewBox="0 0 90 110" aria-hidden="true"><path d="M10,12 C55,20 70,45 45,68 C30,82 40,95 68,99" fill="none" stroke="#162747" stroke-width="1.4" stroke-linecap="round"/><path d="M60,92 L69,100 L58,103" fill="none" stroke="#162747" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3 class="b2">Return humans to purpose</h3>
+    </div>
+  </section>
+
+  <section>
+    <h2>Work entry — B · mounted plate (locked)</h2>
+    <div class="plate-entry">
+      <div>
+        <p class="kicker">Primary company / Context-aware AI infrastructure</p>
+        <h3>Contexta</h3>
+        <p style="font-size:var(--size-body)">A system for giving AI agents durable working <span class="circled">memory<svg viewBox="0 0 100 40" preserveAspectRatio="none"><ellipse cx="50" cy="20" rx="47" ry="16" fill="none" stroke="#a64b2a" stroke-width="1.6" transform="rotate(-2 50 20)"/></svg></span>, provenance, and context that can be inspected, updated, and trusted.</p>
+        <a class="readlink" href="#">Bring a design-partner workflow →</a>
+      </div>
+      <div>
+        <div class="plate">
+          <span class="cross tl"></span><span class="cross tr"></span><span class="cross bl"></span><span class="cross br"></span>
+          <svg class="sketch" viewBox="0 0 200 160" aria-hidden="true">
+            <circle class="ring ring-1" cx="100" cy="80" r="70" />
+            <circle class="ring ring-2" cx="100" cy="80" r="48" />
+            <circle class="ring ring-3" cx="100" cy="80" r="26" />
+            <circle class="node" cx="100" cy="80" r="4" />
+            <circle class="node" cx="150" cy="46" r="2.5" />
+            <circle class="node" cx="42" cy="108" r="2.5" />
+            <circle class="node" cx="150" cy="118" r="2.5" />
+          </svg>
+          <span class="fig">Fig. C1 — memory &amp; provenance layers</span>
+        </div>
+        <span class="plate-note">the core bet</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Writing row — A · field-note thumbnail (locked)</h2>
+    <div class="writing-row">
+      <div class="fieldnote"><img src="public/images/blog/context-product.png" alt="Essay lead art — the context layer as product"></div>
+      <div>
+        <p class="meta">May 19, 2025 · 7 min · Systems</p>
+        <h3>The Context Layer Is the Product</h3>
+        <p>Context shapes decisions, creates leverage, and compounds over time. The next durable AI products will treat context as infrastructure, not prompt decoration.</p>
+        <a class="readlink" href="#">Read the essay →</a>
+      </div>
+    </div>
+    <p class="tok" style="margin-top:10px">thumbnail = the essay's own lead art, never a repeated placeholder</p>
+  </section>
+
+  <section>
+    <h2>Footer coda — B · pigment bloom (locked)</h2>
+    <div class="coda">
+      <div class="bloom"></div>
+      <div class="grid">
+        <div><p class="name">Alvis Tang</p><p class="mission">Context for AI. Purpose for humans.</p></div>
+        <div class="statement"><p class="s1">Persistent enthusiast</p><p class="s2">by choice.</p></div>
+      </div>
+    </div>
+    <p class="tok" style="margin-top:10px">masked wash soft-light, 8s breathe · animation removed under prefers-reduced-motion</p>
+  </section>
+
+  <section>
+    <h2>Header — C · centered masthead (locked, every route)</h2>
+    <div class="masthead">
+      <nav><a href="#">Home</a><a href="#">About</a></nav>
+      <div class="brand"><span class="emblem">A</span><span class="wordmark">ALVIS</span></div>
+      <nav class="right"><a href="#">Now</a><a href="#">Work</a><a href="#">Thinking</a></nav>
+    </div>
+  </section>
+</div>
+</body>
+</html>
