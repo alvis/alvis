@@ -1,4 +1,4 @@
-import { Intro } from '../sections/Intro';
+import { Details, Intro, Writing } from '#sections';
 
 import type { FC } from 'react';
 
@@ -8,8 +8,12 @@ import type { FC } from 'react';
  */
 export default (function HomePage() {
   return (
-    <main>
-      <Intro>a curious techy turned maths PhD turned entrepreneur</Intro>
+    <main id="main-content">
+      <Intro>
+        Product, AI, and writing shaped by curiosity, context, and craft.
+      </Intro>
+      <Writing />
+      <Details />
     </main>
   );
 } satisfies FC);

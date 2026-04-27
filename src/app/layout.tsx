@@ -7,8 +7,9 @@ import { Landing } from '#layouts';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Hi! I'm Alvis",
-  description: 'A curious techy turned maths PhD turned entrepreneur',
+  title: 'Alvis Tang - Maths, Product Systems, and AI Tooling',
+  description:
+    'Personal site for Alvis Tang, a maths PhD and product builder working across rigorous ideas, AI systems, and useful software.',
   keywords: ['alvis', 'personal', 'website'],
   authors: [{ name: 'Alvis HT Tang', url: 'https://hilbert.space' }],
   creator: 'Alvis HT Tang',

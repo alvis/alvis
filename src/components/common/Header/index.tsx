@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import favicon from '#public/images/icons/favicon.png';
 
@@ -17,31 +18,28 @@ interface HeaderProps {
  * @returns header component
  */
 export const Header: FC<HeaderProps> = ({ className }) => (
-  <div className={`
-    flex items-center justify-between
-    ${className ?? ''}
-  `}>
-    <div>
-      <a
-        className={`
-          flex items-center text-gray-800
-          hover:text-indigo-600
-        `}
-        href="#home">
+  <div
+    className={`site-shell flex min-h-22 items-center justify-between gap-5 ${className ?? ''} `}>
+    <div className="flex items-center gap-3">
+      <Link
+        aria-label="Alvis Tang home"
+        className={`flex size-12 items-center justify-center text-[#162747] transition-transform duration-200 hover:scale-105 hover:text-[#466a9f]`}
+        href="/">
         <Image
           priority
-          alt="logo"
-          className={`
-            animate-[reveal_1.5s_ease-out_0.5s_both] grayscale transition-all
-            duration-300
-            hover:grayscale-0
-          `}
-          height={64}
-          placeholder="blur"
+          alt="Alvis Tang logo"
+          className={`drop-shadow-[0_10px_18px_rgba(33,63,134,0.16)] transition-all duration-300 hover:rotate-[-4deg]`}
+          height={48}
           src={favicon}
-          width={64}
+          width={48}
         />
-      </a>
+      </Link>
+      <Link
+        aria-label="Alvis Tang home"
+        className="hidden font-serif text-3xl tracking-[0.18em] text-[#162747] transition-colors hover:text-[#a64b2a] sm:block"
+        href="/">
+        ALVIS
+      </Link>
     </div>
     <Navigation />
   </div>
